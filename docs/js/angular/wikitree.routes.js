@@ -3,7 +3,7 @@
         config(['$routeProvider', function($routeProvider) {
             $routeProvider.
                 when('/', {
-                    templateUrl: '/js/angular/home/home.template.html',
+                    templateUrl: 'js/angular/home/home.template.html',
                     controller: 'home_controller',
                     resolve: {
                         is_new: ['Sessions', function (Sessions) {
@@ -12,11 +12,11 @@
                     }
                 }).
                 when('/welcome', {
-                    templateUrl: '/js/angular/home/home.template.html',
+                    templateUrl: 'js/angular/home/home.template.html',
                     controller: 'home_controller'
                 }).
                 when('/session/:uuid', {
-                    templateUrl: '/js/angular/session/session.template.html',
+                    templateUrl: 'js/angular/session/session.template.html',
                     controller: 'session_controller',
                     controllerAs: 'session',
                     resolve: {
@@ -26,7 +26,7 @@
                     }
                 }).
                 when('/new/:term/:search?', {
-                    templateUrl: '/js/angular/session/session.template.html',
+                    templateUrl: 'js/angular/session/session.template.html',
                     controller: 'session_controller',
                     controllerAs: 'session',
                     resolve: {

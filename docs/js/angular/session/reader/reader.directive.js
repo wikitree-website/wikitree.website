@@ -4,7 +4,7 @@
             return {
                 restrict: 'E',
                 replace: true,
-                templateUrl: "/js/angular/session/reader/reader.template.html",
+                templateUrl: 'js/angular/session/reader/reader.template.html',
                 controller: 'readerController',
                 link: function(scope, element, attrs) {
                     // grab reference to iFrame's window object
@@ -21,7 +21,7 @@
                             }
                         }).
                         // ...THEN give it src url
-                        attr('src', '/article-frame.html');
+                        attr('src', 'article-frame.html');
                 }
             };
         }]);

@@ -5,7 +5,7 @@
             return {
                 restrict: 'E',
                 replace: true,
-                templateUrl: "/js/angular/session/menu/session_tile/session_tile.template.html",
+                templateUrl: 'js/angular/session/menu/session_tile/session_tile.template.html',
                 controller: 'sessionController'
             }
         }]);

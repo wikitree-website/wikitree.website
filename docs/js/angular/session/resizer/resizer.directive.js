@@ -92,7 +92,7 @@
                 return {
                     restrict: 'E',
                     replace: true,
-                    templateUrl: '/js/angular/session/resizer/resizer.template.html',
+                    templateUrl: 'js/angular/session/resizer/resizer.template.html',
                     link: link
                 }
             }

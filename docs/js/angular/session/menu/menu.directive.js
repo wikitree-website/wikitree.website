@@ -5,7 +5,7 @@
             return {
                 restrict: 'E',
                 replace: true,
-                templateUrl: '/js/angular/session/menu/menu.template.html',
+                templateUrl: 'js/angular/session/menu/menu.template.html',
                 controller: 'menuController'
             }
         }]);

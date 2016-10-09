@@ -1635,7 +1635,7 @@ NoteNodePopover.prototype.position = function (x, y) {
         config(['$routeProvider', function($routeProvider) {
             $routeProvider.
                 when('/', {
-                    templateUrl: '/js/angular/home/home.template.html',
+                    templateUrl: 'js/angular/home/home.template.html',
                     controller: 'home_controller',
                     resolve: {
                         is_new: ['Sessions', function (Sessions) {
@@ -1644,11 +1644,11 @@ NoteNodePopover.prototype.position = function (x, y) {
                     }
                 }).
                 when('/welcome', {
-                    templateUrl: '/js/angular/home/home.template.html',
+                    templateUrl: 'js/angular/home/home.template.html',
                     controller: 'home_controller'
                 }).
                 when('/session/:uuid', {
-                    templateUrl: '/js/angular/session/session.template.html',
+                    templateUrl: 'js/angular/session/session.template.html',
                     controller: 'session_controller',
                     controllerAs: 'session',
                     resolve: {
@@ -1658,7 +1658,7 @@ NoteNodePopover.prototype.position = function (x, y) {
                     }
                 }).
                 when('/new/:term/:search?', {
-                    templateUrl: '/js/angular/session/session.template.html',
+                    templateUrl: 'js/angular/session/session.template.html',
                     controller: 'session_controller',
                     controllerAs: 'session',
                     resolve: {
@@ -2036,7 +2036,7 @@ NoteNodePopover.prototype.position = function (x, y) {
         directive('search', [function() {
             return {
                 restrict: 'E',
-                templateUrl: "/js/angular/search/search.template.html",
+                templateUrl: 'js/angular/search/search.template.html',
                 controller: 'searchController',
                 link: function($scope, $element, $attributes) {
                     $scope.large = $attributes.large;
@@ -2783,7 +2783,7 @@ NoteNodePopover.prototype.position = function (x, y) {
             return {
                 restrict: 'E',
                 replace: true,
-                templateUrl: '/js/angular/session/menu/menu.template.html',
+                templateUrl: 'js/angular/session/menu/menu.template.html',
                 controller: 'menuController'
             }
         }]);
@@ -2925,7 +2925,7 @@ NoteNodePopover.prototype.position = function (x, y) {
             return {
                 restrict: 'E',
                 replace: true,
-                templateUrl: "/js/angular/session/menu/session_tile/session_tile.template.html",
+                templateUrl: 'js/angular/session/menu/session_tile/session_tile.template.html',
                 controller: 'sessionController'
             }
         }]);
@@ -3164,7 +3164,7 @@ NoteNodePopover.prototype.position = function (x, y) {
             return {
                 restrict: 'E',
                 replace: true,
-                templateUrl: "/js/angular/session/reader/reader.template.html",
+                templateUrl: 'js/angular/session/reader/reader.template.html',
                 controller: 'readerController',
                 link: function(scope, element, attrs) {
                     // grab reference to iFrame's window object
@@ -3181,7 +3181,7 @@ NoteNodePopover.prototype.position = function (x, y) {
                             }
                         }).
                         // ...THEN give it src url
-                        attr('src', '/article-frame.html');
+                        attr('src', 'article-frame.html');
                 }
             };
         }]);
@@ -3292,7 +3292,7 @@ NoteNodePopover.prototype.position = function (x, y) {
             return {
                 restrict: 'E',
                 replace: true,
-                templateUrl: '/js/angular/session/graph/graph.template.html',
+                templateUrl: 'js/angular/session/graph/graph.template.html',
                 controller: 'graphController',
                 link: function(scope, element) {
                     scope.graph = new ForceGraph(
@@ -3404,7 +3404,7 @@ NoteNodePopover.prototype.position = function (x, y) {
                 return {
                     restrict: 'E',
                     replace: true,
-                    templateUrl: '/js/angular/session/resizer/resizer.template.html',
+                    templateUrl: 'js/angular/session/resizer/resizer.template.html',
                     link: link
                 }
             }

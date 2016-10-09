@@ -4,7 +4,7 @@
             return {
                 restrict: 'E',
                 replace: true,
-                templateUrl: '/js/angular/session/graph/graph.template.html',
+                templateUrl: 'js/angular/session/graph/graph.template.html',
                 controller: 'graphController',
                 link: function(scope, element) {
                     scope.graph = new ForceGraph(
