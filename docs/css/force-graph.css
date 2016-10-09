@@ -1,0 +1,259 @@
+
+#map .btn-xs {
+    /* warning todo, kinda risky override */
+    padding: 3px 4px;
+}
+
+
+
+/**
+ * Popovers
+ */
+
+.graph-popover {
+    max-width: none;
+    position: absolute;
+    text-align: center;
+    background-color: #EEE;
+}
+
+.graph-popover.node {
+    min-width: 64px;
+}
+
+.graph-popover.note {
+    min-width: 88px;
+}
+
+.graph-popover.link {
+    min-width: 36px;
+}
+
+.graph-popover.edit {
+    min-width: 280px;
+}
+
+.graph-popover .popover-content {
+    position: relative;
+    padding: 4px;
+}
+
+.graph-popover.bottom > .arrow:after {
+    border-bottom-color: #EEE;
+}
+
+.graph-popover.right > .arrow:after {
+    border-right-color: #EEE;
+}
+
+
+
+
+/**
+ * Edit popover specifics
+ */
+
+.graph-popover.edit .arrow {
+    margin-top: 0px;
+    top: 10px;
+}
+
+.graph-popover.edit .upper {
+    height: 30px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+}
+
+.graph-popover.edit .upper .name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 60px;
+    bottom: 0;
+}
+
+.graph-popover.edit .upper .controls {
+    width: 56px;
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    bottom: 0;
+    text-align: right;
+}
+
+.graph-popover.edit .upper .close {
+    line-height: 1em;
+}
+
+.graph-popover.edit .lower {
+    margin-top: 34px;
+}
+
+.graph-popover.edit input.input-sm {
+    padding: 5px;
+    padding-right: 0;
+    font-size: 14px;
+}
+
+.graph-popover.edit textarea.input-sm {
+    padding: 5px;
+    padding-right: 0;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+
+/**
+ * D3 force graph styles
+ */
+
+svg {
+    position: relative;
+    z-index: 10;
+}
+
+g.node {
+    cursor: pointer;
+}
+
+g.node circle.disc {
+    fill: #FFF;
+}
+
+g.node circle.cursor {
+    fill: transparent;
+    pointer-events: none;
+}
+
+g.node circle.pin {
+    fill: transparent;
+    pointer-events: none;
+}
+
+g.node text.note-icon-back {
+    fill: #FFF;
+    font-size: 29px;
+}
+
+g.node text.note-icon-fore {
+    fill: #A0A0A0;
+    font-size: 30px;
+}
+
+g.node text.name {
+    fill: #333;
+    font-family: sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+g.node text.note {
+    fill: #555;
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+g.node body {
+    background: none;
+    font-size: 10px;
+    line-height: 12px;
+    color: #555;
+    pointer-events: none;
+}
+
+g.node.hovered text.name,
+g.node:hover text.name {
+    font-weight: bold;
+}
+
+g.node.hovered text.note,
+g.node:hover text.note {
+    font-weight: bold;
+    fill: #333;
+}
+
+g.node.hovered text.note-icon-fore,
+g.node:hover text.note-icon-fore {
+    fill: #555;
+}
+
+g.node.active circle.disc {
+    fill: #FC6;
+}
+
+g.node.active text.note-icon-fore {
+    fill: #222;
+}
+
+g.node.active text.name {
+    font-weight: bold;
+}
+
+g.node.fixed circle.pin {
+    fill: #676767;
+}
+
+line.underlink {
+    stroke: transparent;
+    stroke-width: 12px;
+    pointer-events: all;
+}
+
+line.underlink.linkback {
+    pointer-events: none;
+}
+
+line.underlink.linking {
+    pointer-events: none;
+}
+
+line.link {
+    stroke: #A0A0A0;
+    stroke-width: 3px;
+    stroke-dasharray: 4, 3;
+    marker-end: url(#link-arrow);
+    pointer-events: none;
+}
+
+line.link.hovered {
+    stroke: #676767;
+    marker-end: url(#link-arrow-hover);
+}
+
+line.link.note {
+    stroke: #95AEC7;
+    marker-end: url(#link-arrow-note);
+}
+
+line.link.linking {
+    marker-end: url(#link-arrow-note-linking);
+}
+
+line.link.note.hovered {
+    stroke: #677c91;
+    marker-end: url(#link-arrow-note-hover);
+}
+
+line.link.linkback,
+line.link.note.linkback {
+    stroke: transparent;
+}
+
+#link-arrow path {
+    fill: #A0A0A0;
+}
+
+#link-arrow-hover path {
+    fill: #676767;
+}
+
+#link-arrow-note-hover path {
+    fill: #677c91;
+}
+
+#link-arrow-note path,
+#link-arrow-note-linking path {
+    fill: #95AEC7;
+}

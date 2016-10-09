@@ -1,0 +1,173 @@
+
+#menu .btn-sm {
+    /* warning todo, kinda risky override */
+    padding: 8px 10px;
+}
+
+
+#menu .menu-controls {
+    position: absolute;
+    top: 10px;
+    right: -48px;
+}
+
+#menu .map-controls {
+    position: absolute;
+    right: -88px;
+    bottom: 10px;
+}
+
+.menu-item {
+    position: relative;
+    border-top: 1px solid #CCC;
+    background-color: #ECECEC;
+}
+.menu-item:first-of-type {
+    border-top: none;
+}
+
+.menu-item.header {
+    height: 45px;
+}
+.menu-item.account {
+    height: 65px;
+}
+.menu-item.new-session {
+    height: 55px;
+}
+.menu-item.saved-sessions {
+    position: absolute;
+    top: 165px;
+    left: 0;
+    right: 0;
+    bottom: 40px;
+}
+.menu-item.site-links {
+    height: 40px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.menu-item.header .title {
+    margin: 0;
+    padding: 0;
+    padding-left: 5px;
+    line-height: 36px;
+}
+
+.menu-item.header .title a {
+    font-weight: bold;
+    font-size: 26px;
+    color: #333;
+}
+
+.menu-item.account .icon {
+    width: 55px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    line-height: 60px;
+    font-size: 36px;
+}
+.menu-item.account .text {
+    position: absolute;
+    top: 0;
+    left: 55px;
+    right: 0;
+    bottom: 0;
+}
+.menu-item.account .text h5 {
+    margin-bottom: 5px;
+}
+
+.menu-item.new-session .button {
+    padding: 10px 5px;
+}
+
+.menu-item.saved-sessions > .title {
+    margin: 0;
+    padding: 12px 6px;
+    font-size: 20px;
+}
+.menu-item.saved-sessions > .title a {
+    color: #333;
+}
+
+.menu-item.saved-sessions .sessions {
+    position: absolute;
+    top: 45px;
+    left: 5px;
+    right: 5px;
+    bottom: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.menu-item.saved-sessions .session {
+    display: block;
+    position: relative;
+    margin-bottom: 1px;
+    padding: 12px 13px 14px;
+    text-decoration: none;
+    color: #333;
+    background-color: #FFF;
+    cursor: pointer;
+}
+
+.menu-item.saved-sessions .session.active {
+    padding-right: 9px;
+    border-right: 5px solid #333;
+    /*border-top: 1px solid #CCC;
+    border-left: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;*/
+    background-color: #DDD;
+    /*color: #222;*/
+}
+
+.menu-item.saved-sessions .session:hover {
+    background-color: #CCC;
+    color: #222;
+}
+
+.menu-item.saved-sessions .session .controls {
+    display: none;
+}
+
+.menu-item.saved-sessions .session:hover .controls {
+    display: block;
+    margin-top: -22px;
+    position: absolute;
+    top: 50%;
+    right: 7px;
+}
+
+.menu-item.saved-sessions .session .title {
+    margin: 0;
+    margin-bottom: 4px;
+    font-size: 16px;
+}
+
+.menu-item.saved-sessions .session .date {
+    margin-left: 0.1em;
+    line-height: 12px;
+    font-size: 10px;
+    color: #777;
+}
+
+.menu-item.saved-sessions .session .date i {
+    margin-right: 0.1em;
+}
+
+.menu-item.saved-sessions .session.active .date,
+.menu-item.saved-sessions .session:hover .date {
+    color: #444;
+}
+
+.menu-item.site-links .links {
+    padding-top: 8px;
+    text-align: center;
+}

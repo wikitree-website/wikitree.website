@@ -1,0 +1,80 @@
+<div id="menu" class="overlay ng-hide ng-hide-animate" ng-show="open">
+    <div class="menu-controls">
+        <button ng-hide="!open" ng-click="toggleMenu()" type="button" class="open-button btn btn-default btn-sm">
+            <i class="fa fa-fw fa-chevron-left"></i>
+        </button>
+        <button ng-hide="open" ng-click="toggleMenu()" type="button" class="open-button btn btn-default btn-sm">
+            <i class="fa fa-fw fa-bars"></i>
+        </button>
+    </div>
+    <div class="map-controls">
+        <button ng-click="locateCurrentNode()" type="button" class="btn btn-default btn-sm">
+            <i class="fa fa-fw fa-location-arrow"></i>
+        </button>
+        <button ng-click="addNoteNode()" type="button" class="btn btn-default btn-sm">
+            <i class="fa fa-fw fa-file-o"></i>
+        </button>
+    </div>
+    <div class="inner">
+        <div class="menu-item header">
+            <h3 class="title">
+                <a href="#" ng-click="toggleMenu()">
+                    Wikitree
+                </a>
+            </h3>
+        </div>
+        <div class="menu-item account">
+            <div class="icon">
+                <i class="fa fa-database"></i>
+            </div>
+            <div class="text">
+                <h5>Saved to local browser</h5>
+                <button disabled="disabled" type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#modal-sign-in">
+                    <s>
+                        <i class="fa fa-sign-in"></i>
+                        &nbsp;Sign in&nbsp;
+                    </s>
+                </button>
+                <button disabled="disabled" type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#modal-register">
+                    <s>
+                        <i class="fa fa-user"></i>
+                        &nbsp;Register&nbsp;
+                    </s>
+                </button>
+            </div>
+        </div>
+        <div class="menu-item new-session">
+            <div class="button" ng-click="goHome()">
+                <button type="button" class="btn btn-success btn-block">
+                    <i class="fa fa-laptop"></i>
+                    &nbsp;New session&nbsp;
+                </button>
+            </div>
+        </div>
+        <div class="menu-item saved-sessions">
+            <h4 class="title">
+                Saved sessions&nbsp;
+            </h4>
+            <div class="sessions">
+                <ul style="list-style-type:none;padding:0" ui-sortable="sortableOptions" ng-model="sessions">
+                    <session ng-repeat="session in sessions track by $index"></session>
+                </ul>
+            </div>
+        </div>
+        <div class="menu-item site-links">
+            <div class="links">
+                <!-- <a href="#">
+                    About
+                </a>
+                &nbsp;|&nbsp; -->
+                <a href="https://github.com/wikitree-page/wikitree" target="_blank">
+                    Github
+                </a>
+                &nbsp;|&nbsp;
+                <a href="https://github.com/wikitree-page/wikitree/issues" target="_blank">
+                    Feedback
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

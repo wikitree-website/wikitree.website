@@ -1,0 +1,685 @@
+/**
+ *
+ * eighties
+ *  red     - #F2777A
+ *  orange  - #F99157
+ *  yellow  - #FFCC66
+ *  green   - #99CC99
+ *  cyan    - #66CCCC
+ *  indigo  - #6699CC
+ *  violet  - #CC99CC
+ *  brown   - #D27B53
+ *
+ * flat
+ *  red     - #E74C3C
+ *  orange  - #E67E22
+ *  yellow  - #F1C40F
+ *  green   - #2ECC71
+ *  cyan    - #1ABC9C
+ *  indigo  - #3498DB
+ *  violet  - #9B59B6
+ *  brown   - #D27B53
+ *
+ *
+ */
+
+
+#map .btn-xs {
+    /* warning todo, kinda risky override */
+    padding: 3px 4px;
+}
+
+
+
+/**
+ * Popovers
+ */
+
+.graph-popover {
+    max-width: none;
+    position: absolute;
+    text-align: center;
+    background-color: #EEE;
+}
+
+.graph-popover.node {
+    min-width: 64px;
+}
+
+.graph-popover.note {
+    min-width: 88px;
+}
+
+.graph-popover.link {
+    min-width: 36px;
+}
+
+.graph-popover.edit {
+    min-width: 280px;
+}
+
+.graph-popover .popover-content {
+    position: relative;
+    padding: 4px;
+}
+
+.graph-popover.bottom > .arrow:after {
+    border-bottom-color: #EEE;
+}
+
+.graph-popover.right > .arrow:after {
+    border-right-color: #EEE;
+}
+
+
+
+
+/**
+ * Edit popover specifics
+ */
+
+.graph-popover.edit .arrow {
+    margin-top: 0px;
+    top: 10px;
+}
+
+.graph-popover.edit .upper {
+    height: 30px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+}
+
+.graph-popover.edit .upper .name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 60px;
+    bottom: 0;
+}
+
+.graph-popover.edit .upper .controls {
+    width: 56px;
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    bottom: 0;
+    text-align: right;
+}
+
+.graph-popover.edit .upper .close {
+    line-height: 1em;
+}
+
+.graph-popover.edit .lower {
+    margin-top: 34px;
+}
+
+.graph-popover.edit input.input-sm {
+    padding: 5px;
+    padding-right: 0;
+    font-size: 14px;
+}
+
+.graph-popover.edit textarea.input-sm {
+    padding: 5px;
+    padding-right: 0;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+
+/**
+ * D3 force graph styles
+ */
+
+svg {
+    position: relative;
+    z-index: 10;
+}
+
+g.node {
+    cursor: pointer;
+}
+
+g.node circle.disc {
+    fill: #FFF;
+}
+
+g.node circle.cursor {
+    fill: transparent;
+    pointer-events: none;
+}
+
+g.node circle.pin {
+    fill: transparent;
+    pointer-events: none;
+}
+
+g.node text.note-icon-back {
+    fill: #FFF;
+    font-size: 29px;
+}
+
+g.node text.note-icon-fore {
+    fill: #A0A0A0;
+    font-size: 30px;
+}
+
+g.node text.name {
+    fill: #333;
+    font-family: sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+g.node text.note {
+    fill: #555;
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+g.node body {
+    background: none;
+    font-size: 10px;
+    line-height: 12px;
+    color: #555;
+    pointer-events: none;
+}
+
+g.node.hovered text.name,
+g.node:hover text.name {
+    font-weight: bold;
+}
+
+g.node.hovered text.note,
+g.node:hover text.note {
+    font-weight: bold;
+    fill: #333;
+}
+
+g.node.hovered text.note-icon-fore,
+g.node:hover text.note-icon-fore {
+    fill: #555;
+}
+
+g.node.active circle.disc {
+    fill: #FC6;
+}
+
+g.node.active text.note-icon-fore {
+    fill: #222;
+}
+
+g.node.active text.name {
+    font-weight: bold;
+}
+
+g.node.fixed circle.pin {
+    fill: #676767;
+}
+
+line.underlink {
+    stroke: transparent;
+    stroke-width: 12px;
+    pointer-events: all;
+}
+
+line.underlink.linkback {
+    pointer-events: none;
+}
+
+line.underlink.linking {
+    pointer-events: none;
+}
+
+line.link {
+    stroke: #A0A0A0;
+    stroke-width: 3px;
+    stroke-dasharray: 4, 3;
+    marker-end: url(#link-arrow);
+    pointer-events: none;
+}
+
+line.link.hovered {
+    stroke: #676767;
+    marker-end: url(#link-arrow-hover);
+}
+
+line.link.note {
+    stroke: #95AEC7;
+    marker-end: url(#link-arrow-note);
+}
+
+line.link.linking {
+    marker-end: url(#link-arrow-note-linking);
+}
+
+line.link.note.hovered {
+    stroke: #677c91;
+    marker-end: url(#link-arrow-note-hover);
+}
+
+line.link.linkback,
+line.link.note.linkback {
+    stroke: transparent;
+}
+
+#link-arrow path {
+    fill: #A0A0A0;
+}
+
+#link-arrow-hover path {
+    fill: #676767;
+}
+
+#link-arrow-note-hover path {
+    fill: #677c91;
+}
+
+#link-arrow-note path,
+#link-arrow-note-linking path {
+    fill: #95AEC7;
+}
+
+/**
+ * Typography hacks via Medium
+ */
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: "liga" on;
+}
+
+
+/**
+ * Globals
+ */
+
+html, body {
+    background-color: #BBB;
+    background-image: url('/img/noise.png');
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+.modal-700 {
+    min-width: 750px;
+}
+
+.wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.removed {
+    display: none !important;
+}
+
+.hidden {
+    visibility: hidden !important;
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 60%; /* width of reader */
+    bottom: 0;
+    overflow: hidden;
+}
+
+
+#menu .btn-sm {
+    /* warning todo, kinda risky override */
+    padding: 8px 10px;
+}
+
+
+#menu .menu-controls {
+    position: absolute;
+    top: 10px;
+    right: -48px;
+}
+
+#menu .map-controls {
+    position: absolute;
+    right: -88px;
+    bottom: 10px;
+}
+
+.menu-item {
+    position: relative;
+    border-top: 1px solid #CCC;
+    background-color: #ECECEC;
+}
+.menu-item:first-of-type {
+    border-top: none;
+}
+
+.menu-item.header {
+    height: 45px;
+}
+.menu-item.account {
+    height: 65px;
+}
+.menu-item.new-session {
+    height: 55px;
+}
+.menu-item.saved-sessions {
+    position: absolute;
+    top: 165px;
+    left: 0;
+    right: 0;
+    bottom: 40px;
+}
+.menu-item.site-links {
+    height: 40px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.menu-item.header .title {
+    margin: 0;
+    padding: 0;
+    padding-left: 5px;
+    line-height: 36px;
+}
+
+.menu-item.header .title a {
+    font-weight: bold;
+    font-size: 26px;
+    color: #333;
+}
+
+.menu-item.account .icon {
+    width: 55px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    line-height: 60px;
+    font-size: 36px;
+}
+.menu-item.account .text {
+    position: absolute;
+    top: 0;
+    left: 55px;
+    right: 0;
+    bottom: 0;
+}
+.menu-item.account .text h5 {
+    margin-bottom: 5px;
+}
+
+.menu-item.new-session .button {
+    padding: 10px 5px;
+}
+
+.menu-item.saved-sessions > .title {
+    margin: 0;
+    padding: 12px 6px;
+    font-size: 20px;
+}
+.menu-item.saved-sessions > .title a {
+    color: #333;
+}
+
+.menu-item.saved-sessions .sessions {
+    position: absolute;
+    top: 45px;
+    left: 5px;
+    right: 5px;
+    bottom: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.menu-item.saved-sessions .session {
+    display: block;
+    position: relative;
+    margin-bottom: 1px;
+    padding: 12px 13px 14px;
+    text-decoration: none;
+    color: #333;
+    background-color: #FFF;
+    cursor: pointer;
+}
+
+.menu-item.saved-sessions .session.active {
+    padding-right: 9px;
+    border-right: 5px solid #333;
+    /*border-top: 1px solid #CCC;
+    border-left: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;*/
+    background-color: #DDD;
+    /*color: #222;*/
+}
+
+.menu-item.saved-sessions .session:hover {
+    background-color: #CCC;
+    color: #222;
+}
+
+.menu-item.saved-sessions .session .controls {
+    display: none;
+}
+
+.menu-item.saved-sessions .session:hover .controls {
+    display: block;
+    margin-top: -22px;
+    position: absolute;
+    top: 50%;
+    right: 7px;
+}
+
+.menu-item.saved-sessions .session .title {
+    margin: 0;
+    margin-bottom: 4px;
+    font-size: 16px;
+}
+
+.menu-item.saved-sessions .session .date {
+    margin-left: 0.1em;
+    line-height: 12px;
+    font-size: 10px;
+    color: #777;
+}
+
+.menu-item.saved-sessions .session .date i {
+    margin-right: 0.1em;
+}
+
+.menu-item.saved-sessions .session.active .date,
+.menu-item.saved-sessions .session:hover .date {
+    color: #444;
+}
+
+.menu-item.site-links .links {
+    padding-top: 8px;
+    text-align: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+.overlay > .inner {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 0;
+}
+
+.overlay#menu {
+    left: 0;
+    z-index: 700;
+    width: 270px;
+    background-color: #ECECEC;
+    -webkit-transition: all ease 0.12s;
+    -moz-transition: all ease 0.12s;
+    -o-transition: all ease 0.12s;
+    transition: all ease 0.12s;
+}
+
+.overlay#menu.ng-hide {
+    left: -270px;
+}
+
+.overlay#reader {
+    right: 0;
+    z-index: 600;
+    width: 60%;
+    background-color: #ECECEC;
+}
+
+#reader .head .logo {
+    width: 50px;
+    height: 45px;
+    position: absolute;
+    top: 1px;
+    left: 0;
+    text-align: center;
+}
+
+#reader .head .logo {
+    cursor: pointer;
+}
+
+#reader .head .search {
+    height: 45px;
+    position: absolute;
+    top: 0;
+    left: 55px;
+    right: 82px;
+}
+
+#reader .head .controls {
+    height: 45px;
+    width: 85px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: right;
+}
+
+#reader .article {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#reader .article > .inner {
+    position: absolute;
+    top: 1px;
+    left: 0;
+    right: 0;
+    bottom: 1px;
+    overflow: hidden;
+    background: white;
+}
+
+#reader .article .border-top {
+    height: 1px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #CCC;
+}
+
+#reader .article .border-bottom {
+    height: 1px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #CCC;
+}
+
+#reader .article iframe {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: white;
+}
+
+#resizer {
+    width: 30px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 9000;
+    cursor: col-resize;
+    cursor: ew-resize;
+}
+
+/**
+ * Home page stylings
+ */
+
+.alert-beta {
+    margin: 0;
+    border-radius: 0;
+    text-align: center;
+}
+
+#home-graph {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.home .up-left {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.home .up-right {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-align: right;
+}
+
+.home .up-right .account {
+    padding-bottom: 4px;
+}
+
+.home .page-title {
+    padding-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 81px;
+    color: #222;
+}
+
+.home .jumbotron {
+    max-width: 700px;
+    margin: auto;
+    margin-top: 160px;
+    padding: 0;
+    background: none;
+}

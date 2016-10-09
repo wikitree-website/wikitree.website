@@ -1,0 +1,36 @@
+<div id="reader" class="overlay" style="width: {{ readerWidth }}">
+    <div class="inner">
+        <div class="head">
+            <div class="logo">
+                <img ng-class="{'removed': loadingCount > 0}" ng-click="openSourceArticle()" class="w" src="/img/w.png">
+                <img ng-class="{'invisible': loadingCount < 1}" class="spinner" src="/img/spinner.gif">
+            </div>
+            <div class="search">
+                <search></search>
+            </div>
+            <div class="controls">
+                <!-- <button ng-click="locateCurrentNode()" ng-disabled="!currentNodeName" type="button" class="btn btn-default">
+                    <i class="fa fa-location-arrow"></i>
+                </button> -->
+                <!-- <button ng-click="scrollToReferences()" ng-disabled="!hasReferences" type="button" class="btn btn-default">
+                    <i class="fa fa-book"></i>
+                </button> -->
+                <div class="btn-group" role="group" aria-label="Article history">
+                    <button ng-click="historyBackward()" ng-disabled="!hasBackward" id="history-prev" type="button" class="btn btn-default">
+                        <i class="fa fa-arrow-left"></i>
+                    </button>
+                    <button ng-click="historyForward()" ng-disabled="!hasForward" id="history-next" type="button" class="btn btn-default">
+                        <i class="fa fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="article">
+            <div class="border-top"></div>
+            <div class="border-bottom"></div>
+            <div class="inner">
+                <iframe id="article-frame" width="100%" height="100%"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
