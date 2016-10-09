@@ -66,7 +66,7 @@ HomeGraph.prototype.updateNodesAndLinks = function (nodes, links) {
     nodes = nodes.slice();
     links = links.slice();
 
-    console.log('home update');
+
 
     this.force.nodes(nodes);
     this.force.links(links);

@@ -51,7 +51,7 @@
 
             // handle graph update
             //$scope.$on('update:nodes+links', function () {
-            //    console.log('saving nodes links');
+
             //    save();
             //});
 
@@ -395,21 +395,21 @@
             session.do_search = function (term, src_node_id, no_set_current, isSearch) {
                 var start_time = Date.now();
 
-                console.log('term', term);
+
 
                 if (!(term && term.length)) return;
 
                 var search;
 
                 if (isSearch) {
-                    console.log('search?');
+
                     search = Search.findOrAddSearch(term);
                 } else {
                     search = Search.findOrAddArticle(term);
                 }
 
                 search.then(function (result) {
-                        console.log(result);
+
 
                         // no result?
                         if (!result) {
@@ -422,7 +422,7 @@
                             ? nodes_by_name[result.name]
                             : add_node(result);
 
-                        console.log(node);
+
 
                         // does our node need to be linked?
                         if (src_node_id) {
@@ -437,10 +437,10 @@
                         }
 
                         var end_time = Date.now();
-                        console.log('handleTitle complete: ', end_time - start_time);
+
                     }).
                     catch(function (err) {
-                        console.log('oh fuck', err);
+
                     });
             };
 
@@ -472,7 +472,7 @@
                 });
 
                 links.forEach(function (link) {
-                    console.log('rebuild lynx');
+
                     var sourceId = link.sourceId;
                     var targetId = link.targetId;
                     link.source = nodes_by_id[sourceId];

@@ -17,7 +17,7 @@
             }
 
             //function getFromAPI(title) {
-            //    console.log('Getting article from API...', title);
+
             //    var timestamp = Date.now();
             //    $rootScope.$broadcast('mediawikiapi:loadstart', timestamp);
             //
@@ -48,7 +48,7 @@
 
             function getFromAPI(title) {
 
-                console.log('Getting article from API...', title);
+
 
                 var timestamp = Date.now();
                 return $q(function (resolve, reject) {

@@ -22,7 +22,7 @@
 
             function getFromAPI(title) {
 
-                console.log('Getting category from API...', title);
+
 
                 var timestamp = Date.now();
                 return $q(function (resolve, reject) {

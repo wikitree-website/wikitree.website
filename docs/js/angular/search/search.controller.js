@@ -28,7 +28,7 @@
                     //    }
                     //}
 
-                    console.log('is_button', isButton);
+
 
                     if (term) {
                         if ($scope.new_session) {

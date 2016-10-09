@@ -1147,7 +1147,7 @@ HomeGraph.prototype.updateNodesAndLinks = function (nodes, links) {
     nodes = nodes.slice();
     links = links.slice();
 
-    console.log('home update');
+
 
     this.force.nodes(nodes);
     this.force.links(links);
@@ -1679,7 +1679,7 @@ NoteNodePopover.prototype.position = function (x, y) {
 
                 search.get_suggestions = function (term) {
 
-                    console.log('Fetching suggestions...', term);
+
 
                     return $http.jsonp('https://en.wikipedia.org/w/api.php', {
                         params: {
@@ -1709,7 +1709,7 @@ NoteNodePopover.prototype.position = function (x, y) {
                             };
                         }).
                         catch(function (err) {
-                            console.log('In findOrAddArticle', err);
+                            if (err) console.error('findOrAddArticle', err);
                             // no result? try searching
                             return search.findOrAddSearch(title);
                         });
@@ -1725,7 +1725,7 @@ NoteNodePopover.prototype.position = function (x, y) {
                             };
                         }).
                         catch(function (err) {
-                            console.log('In findOrAddCategory', err);
+                            if (err) console.error('findOrAddCategory', err);
                             // no result? try searching
                             return findOrAddSearch(title);
                         });
@@ -1741,7 +1741,7 @@ NoteNodePopover.prototype.position = function (x, y) {
                             };
                         }).
                         catch(function (err) {
-                            console.log('In findOrAddSearch', err);
+                            if (err) console.error('findOrAddSearch', err);
                             // no dice
                             return null;
                         });
@@ -1802,17 +1802,17 @@ NoteNodePopover.prototype.position = function (x, y) {
                 // fired in menu.controller.js
                 $rootScope.$on('session:sort', function (event, data) {
                     //  moved the active session
-                    console.log('Sorted sessions', data);
+
                     if (data.start == Sessions.active) {
-                        console.log('Moved active session, updating...');
+
                         Sessions.active = data.stop;
                     // moved a session below active above
                     } else if (data.start > Sessions.active && data.stop <= Sessions.active) {
-                        console.log('Moved a session over active, updating...');
+
                         Sessions.active++;
                     // moved a session above active below
                     } else if (data.start < Sessions.active && data.stop >= Sessions.active) {
-                        console.log('Moved a session under active, updating...');
+
                         Sessions.active--;
                     }
                 });
@@ -1836,19 +1836,19 @@ NoteNodePopover.prototype.position = function (x, y) {
                     //debugger
                     Sessions.active = 0;
                     var is_search = ($route.current.params.search === 'true');
-                    console.log('is_search service', is_search);
+
 
                     var session = new Session(name, is_search);
-                    console.log('session is_search', session.search);
+
                     Sessions.index.unshift(new SessionIndex(session, name));
 
                     localStorageService.set(session.uuid, session);
                     localStorageService.set('index', Sessions.index);
                     localStorageService.set('active', Sessions.active);
 
-                    console.log('new session', session.uuid);
 
-                    $location.path('/session/'+session.uuid);
+
+                    $location.path('/session/'+session.uuid).replace();
                     return session;
                 };
 
@@ -1870,7 +1870,7 @@ NoteNodePopover.prototype.position = function (x, y) {
                 Sessions.restore = function (uuid) {
                     var session = localStorageService.get(uuid);
 
-                    console.log('restored session', session);
+
 
                     if (!session) $location.path('/');
 
@@ -1880,7 +1880,7 @@ NoteNodePopover.prototype.position = function (x, y) {
                             return session.uuid === uuid
                         })[0]);
 
-                    console.log('active session', Sessions.active);
+
 
                     return session;
                 };
@@ -2005,7 +2005,7 @@ NoteNodePopover.prototype.position = function (x, y) {
                     //    }
                     //}
 
-                    console.log('is_button', isButton);
+
 
                     if (term) {
                         if ($scope.new_session) {
@@ -2265,7 +2265,7 @@ NoteNodePopover.prototype.position = function (x, y) {
 
             // handle graph update
             //$scope.$on('update:nodes+links', function () {
-            //    console.log('saving nodes links');
+
             //    save();
             //});
 
@@ -2609,21 +2609,21 @@ NoteNodePopover.prototype.position = function (x, y) {
             session.do_search = function (term, src_node_id, no_set_current, isSearch) {
                 var start_time = Date.now();
 
-                console.log('term', term);
+
 
                 if (!(term && term.length)) return;
 
                 var search;
 
                 if (isSearch) {
-                    console.log('search?');
+
                     search = Search.findOrAddSearch(term);
                 } else {
                     search = Search.findOrAddArticle(term);
                 }
 
                 search.then(function (result) {
-                        console.log(result);
+
 
                         // no result?
                         if (!result) {
@@ -2636,7 +2636,7 @@ NoteNodePopover.prototype.position = function (x, y) {
                             ? nodes_by_name[result.name]
                             : add_node(result);
 
-                        console.log(node);
+
 
                         // does our node need to be linked?
                         if (src_node_id) {
@@ -2651,10 +2651,10 @@ NoteNodePopover.prototype.position = function (x, y) {
                         }
 
                         var end_time = Date.now();
-                        console.log('handleTitle complete: ', end_time - start_time);
+
                     }).
                     catch(function (err) {
-                        console.log('oh fuck', err);
+
                     });
             };
 
@@ -2686,7 +2686,7 @@ NoteNodePopover.prototype.position = function (x, y) {
                 });
 
                 links.forEach(function (link) {
-                    console.log('rebuild lynx');
+
                     var sourceId = link.sourceId;
                     var targetId = link.targetId;
                     link.source = nodes_by_id[sourceId];
@@ -2760,7 +2760,7 @@ NoteNodePopover.prototype.position = function (x, y) {
                             start: ui.item.sortable.index,
                             stop:  ui.item.sortable.dropindex
                         });
-                        console.log('index', ui.item.sortable.index, 'moved to', ui.item.sortable.dropindex);
+
                     }
                 };
 
@@ -2881,7 +2881,7 @@ NoteNodePopover.prototype.position = function (x, y) {
             $scope.editing = false;
 
             $scope.edit = function() {
-                console.log('edit');
+
                 if (!$scope.editing) {
                     $scope.$parent.$broadcast('session:cancel_edit');
                 }
@@ -3446,7 +3446,7 @@ NoteNodePopover.prototype.position = function (x, y) {
             }
 
             //function getFromAPI(title) {
-            //    console.log('Getting article from API...', title);
+
             //    var timestamp = Date.now();
             //    $rootScope.$broadcast('mediawikiapi:loadstart', timestamp);
             //
@@ -3477,7 +3477,7 @@ NoteNodePopover.prototype.position = function (x, y) {
 
             function getFromAPI(title) {
 
-                console.log('Getting article from API...', title);
+
 
                 var timestamp = Date.now();
                 return $q(function (resolve, reject) {
@@ -3609,7 +3609,7 @@ NoteNodePopover.prototype.position = function (x, y) {
 
             function getFromAPI(title) {
 
-                console.log('Getting category from API...', title);
+
 
                 var timestamp = Date.now();
                 return $q(function (resolve, reject) {
@@ -3832,7 +3832,7 @@ NoteNodePopover.prototype.position = function (x, y) {
 
             function getFromAPI(query) {
 
-                console.log('Getting search results from API...', query);
+
 
                 var timestamp = Date.now();
                 return $q(function (resolve, reject) {

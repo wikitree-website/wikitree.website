@@ -39,7 +39,7 @@
                             start: ui.item.sortable.index,
                             stop:  ui.item.sortable.dropindex
                         });
-                        console.log('index', ui.item.sortable.index, 'moved to', ui.item.sortable.dropindex);
+
                     }
                 };
 

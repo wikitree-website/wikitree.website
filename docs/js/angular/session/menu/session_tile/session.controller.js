@@ -6,7 +6,7 @@
             $scope.editing = false;
 
             $scope.edit = function() {
-                console.log('edit');
+
                 if (!$scope.editing) {
                     $scope.$parent.$broadcast('session:cancel_edit');
                 }

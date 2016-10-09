@@ -18,7 +18,7 @@
 
             function getFromAPI(query) {
 
-                console.log('Getting search results from API...', query);
+
 
                 var timestamp = Date.now();
                 return $q(function (resolve, reject) {

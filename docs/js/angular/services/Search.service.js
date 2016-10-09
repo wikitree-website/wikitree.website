@@ -7,7 +7,7 @@
 
                 search.get_suggestions = function (term) {
 
-                    console.log('Fetching suggestions...', term);
+
 
                     return $http.jsonp('https://en.wikipedia.org/w/api.php', {
                         params: {
@@ -37,7 +37,7 @@
                             };
                         }).
                         catch(function (err) {
-                            console.log('In findOrAddArticle', err);
+                            if (err) console.error('findOrAddArticle', err);
                             // no result? try searching
                             return search.findOrAddSearch(title);
                         });
@@ -53,7 +53,7 @@
                             };
                         }).
                         catch(function (err) {
-                            console.log('In findOrAddCategory', err);
+                            if (err) console.error('findOrAddCategory', err);
                             // no result? try searching
                             return findOrAddSearch(title);
                         });
@@ -69,7 +69,7 @@
                             };
                         }).
                         catch(function (err) {
-                            console.log('In findOrAddSearch', err);
+                            if (err) console.error('findOrAddSearch', err);
                             // no dice
                             return null;
                         });

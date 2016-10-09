@@ -48,17 +48,17 @@
                 // fired in menu.controller.js
                 $rootScope.$on('session:sort', function (event, data) {
                     //  moved the active session
-                    console.log('Sorted sessions', data);
+
                     if (data.start == Sessions.active) {
-                        console.log('Moved active session, updating...');
+
                         Sessions.active = data.stop;
                     // moved a session below active above
                     } else if (data.start > Sessions.active && data.stop <= Sessions.active) {
-                        console.log('Moved a session over active, updating...');
+
                         Sessions.active++;
                     // moved a session above active below
                     } else if (data.start < Sessions.active && data.stop >= Sessions.active) {
-                        console.log('Moved a session under active, updating...');
+
                         Sessions.active--;
                     }
                 });
@@ -82,19 +82,19 @@
                     //debugger
                     Sessions.active = 0;
                     var is_search = ($route.current.params.search === 'true');
-                    console.log('is_search service', is_search);
+
 
                     var session = new Session(name, is_search);
-                    console.log('session is_search', session.search);
+
                     Sessions.index.unshift(new SessionIndex(session, name));
 
                     localStorageService.set(session.uuid, session);
                     localStorageService.set('index', Sessions.index);
                     localStorageService.set('active', Sessions.active);
 
-                    console.log('new session', session.uuid);
 
-                    $location.path('/session/'+session.uuid);
+
+                    $location.path('/session/'+session.uuid).replace();
                     return session;
                 };
 
@@ -116,7 +116,7 @@
                 Sessions.restore = function (uuid) {
                     var session = localStorageService.get(uuid);
 
-                    console.log('restored session', session);
+
 
                     if (!session) $location.path('/');
 
@@ -126,7 +126,7 @@
                             return session.uuid === uuid
                         })[0]);
 
-                    console.log('active session', Sessions.active);
+
 
                     return session;
                 };
