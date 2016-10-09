@@ -30,9 +30,9 @@ $ gulp watch
 
 ## Serving
 
-This version of Wikitree runs on GitHub pages out of the `docs/` directory.
+This version of Wikitree is served by GitHub Pages out of the `docs/` directory.
 
-To run the site locally:
+To serve the site locally, run:
 ```
 $ cd docs/
 $ http-server
