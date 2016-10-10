@@ -22,7 +22,7 @@ This project uses `gulp` to concat & minify its `.js` and `.css` files
 ```
 $ gulp build
 ```
-(which empties & refill `docs/build`)
+(which empties & regenerates `docs/build`)
 
 #### For development, run:
 ```
