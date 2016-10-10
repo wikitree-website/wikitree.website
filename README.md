@@ -34,6 +34,6 @@ This version of Wikitree is served by GitHub Pages out of the `docs/` directory.
 
 To serve the site locally, run:
 ```
-$ cd docs/
+$ cd docs
 $ http-server
 ```
