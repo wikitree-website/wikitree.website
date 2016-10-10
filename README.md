@@ -16,7 +16,7 @@ $ npm install
 
 ## Building
 
-This project uses gulp to concat & minify its `.js` and `.css` files
+This project uses `gulp` to concat & minify its `.js` and `.css` files
 
 #### For production, run:
 ```
