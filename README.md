@@ -6,31 +6,33 @@ A web-based research tool, a visual mapping companion for your Wikipedia wanderi
 
 ## Installation
 
-Prereq: ensure you have `node` installed
+Ensure you have `node` installed
 
 Then run:
 ```
 $ npm install
 ```
-(which should also trigger `bower install`)
+(which also triggers `bower install`)
 
 ## Building
 
 This project uses gulp to concat & minify its `.js` and `.css` files
 
-For production, run:
+#### For production, run:
 ```
 $ gulp build
 ```
+(which empties & refill `docs/build`)
 
-Or, for development, run:
+#### For development, run:
 ```
 $ gulp watch
 ```
+(which builds, and rebuilds on any `.js` or `.css` file changes in `docs`)
 
 ## Serving
 
-This version of Wikitree is served by GitHub Pages out of the `docs/` directory.
+This version of Wikitree is served by GitHub Pages out of the `docs` directory
 
 To serve the site locally, run:
 ```
